@@ -19,6 +19,13 @@ const Header = function({ labels, logoName, logoSubtitle }) {
                 </div>
             </header>
             <style jsx>{`
+                .logo-title a {
+                    font-size: 1.5rem;
+                    font-family: MongolianFont;
+                    text-decoration: none;
+                    color: #707070;
+                    letter-spacing: 1px;
+                }
                 .sub-title {
                     font-family: 'Shadows Into Light', cursive;
                     font-weight: 700;

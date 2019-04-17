@@ -45,6 +45,10 @@ const Layout = props => {
                 p {
                     margin-bottom: 10px;
                 }
+                @font-face {
+                    font-family: MongolianFont;
+                    src: url('./static/fonts/monbaiti.ttf');
+                }
             `}</style>
         </div>
     );

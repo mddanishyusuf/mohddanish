@@ -1,6 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
-import getSlug from 'speakingurl';
 
 import { getPosts, getRepoInfo, getLabels } from '../config/api';
 import { PostCard } from '../components/Factory';
@@ -11,19 +9,19 @@ function IndexPage({ posts, totalPosts, labels }) {
     return (
         <Layout labels={labels}>
             {totalPosts}
-            <ul>
+                <div className="card-container">
                 {posts.map(post => (
-                    <Link
-                        as={`/post/${[getSlug(post.title), post.number].join('-')}`}
-                        href={`/post?number=${post.number}&slug=${[getSlug(post.title)]}`}
-                        key={post.title}
-                    >
-                        <a>
-                            <PostCard postDetail={post} />
-                        </a>
-                    </Link>
+                    <div className="card" key={post.id}>
+                        <PostCard postDetail={post} />
+                    </div>
                 ))}
-            </ul>
+                <style jsx>{`
+                    .card-container .card:nth-child(odd) {
+                        background-color: #F9F9F9;
+                      }
+                `}
+                </style>
+                </div>
         </Layout>
     );
 }
