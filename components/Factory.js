@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import Link from 'next/link';
 import getSlug from 'speakingurl';
-import moment from 'moment'
+import moment from 'moment';
 
 function PostSlug({ title, label, number }) {
     return (
@@ -10,9 +10,7 @@ function PostSlug({ title, label, number }) {
                 as={`/post/${[getSlug(title), number].join('-')}`}
                 href={`/post?number=${number}&slug=${[getSlug(title)]}`}
             >
-                <a>
-                    {label}
-                </a>
+                <a>{label}</a>
             </Link>
 
             <style jsx>
@@ -24,7 +22,7 @@ function PostSlug({ title, label, number }) {
                 `}
             </style>
         </Fragment>
-    )
+    );
 }
 
 export function Navbar({ labels }) {
@@ -70,7 +68,12 @@ export function PostCard({ postDetail }) {
                 <PostSlug title={postDetail.title} label={postDetail.title} number={postDetail.number} />
             </div>
             <div className="post-date">{moment(postDetail.created_at).fromNow()}</div>
-            <div className="post-summary">{postDetail.body.substr(0, 300)} <span><PostSlug title={postDetail.title} number={postDetail.number} label="read more" /></span></div>
+            <div className="post-summary">
+                {postDetail.body.substr(0, 300)}{' '}
+                <span>
+                    <PostSlug title={postDetail.title} number={postDetail.number} label="read more" />
+                </span>
+            </div>
             <div className="post-title" />
             <style jsx>
                 {`
@@ -109,7 +112,7 @@ export function PostCard({ postDetail }) {
                     }
                     .post-summary span {
                         font-family: 'Shadows Into Light', cursive;
-                        color: #3832DC;
+                        color: #3832dc;
                     }
                 `}
             </style>

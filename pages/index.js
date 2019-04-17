@@ -9,19 +9,20 @@ function IndexPage({ posts, totalPosts, labels }) {
     return (
         <Layout labels={labels}>
             {totalPosts}
-                <div className="card-container">
+            <div className="card-container">
                 {posts.map(post => (
                     <div className="card" key={post.id}>
                         <PostCard postDetail={post} />
                     </div>
                 ))}
-                <style jsx>{`
-                    .card-container .card:nth-child(odd) {
-                        background-color: #F9F9F9;
-                      }
-                `}
+                <style jsx>
+                    {`
+                        .card-container .card:nth-child(odd) {
+                            background-color: #f9f9f9;
+                        }
+                    `}
                 </style>
-                </div>
+            </div>
         </Layout>
     );
 }

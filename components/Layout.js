@@ -36,15 +36,43 @@ const Layout = props => {
                     margin: 0;
                     padding: 0;
                     font-weight: 400;
-                    line-height: 1.8;
+                    line-height: 1.6;
                     color: #333;
                 }
                 h1 {
                     font-weight: 700;
                 }
                 p {
-                    margin-bottom: 10px;
+                    font-size: 1.2rem;
+                    font-family: MongolianFont;
+                    letter-spacing: 1px;
                 }
+                h3 {
+                    font-size: 1.6rem;
+                    font-family: MongolianFont;
+                    letter-spacing: 1px;
+                }
+                pre {
+                    background-color: #f6f8fa;
+                    border-radius: 3px;
+                    font-size: 85%;
+                    line-height: 1.45;
+                    overflow: auto;
+                    padding: 16px;
+                }
+                .body-markdown img {
+                    max-width: 100%;
+                }
+
+                .body-markdown p code,
+                .body-markdown ol li code {
+                    background-color: rgba(27, 31, 35, 0.05);
+                    border-radius: 3px;
+                    font-size: 85%;
+                    margin: 0;
+                    padding: 0.2em 0.4em;
+                }
+
                 @font-face {
                     font-family: MongolianFont;
                     src: url('./static/fonts/monbaiti.ttf');
