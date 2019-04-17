@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-unfetch';
+import readingTime from 'reading-time';
 import { repositoryName } from './data';
 
 export function getRepoInfo() {
@@ -23,4 +24,17 @@ export function getPost(number) {
             process.env.GITHUB_ACCESS_TOKEN
         }`
     );
+}
+
+export function getComments(number) {
+    return fetch(
+        `https://api.github.com/repos/${repositoryName}/issues/${number}/comments?access_token=${
+            process.env.GITHUB_ACCESS_TOKEN
+        }`
+    );
+}
+
+export function getReadingTime(text) {
+    const timeObj = readingTime(text);
+    return timeObj.text;
 }

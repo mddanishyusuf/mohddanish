@@ -1,13 +1,13 @@
 import { withRouter } from 'next/router';
 
-import { getLabels, getPost } from '../config/api';
+import { getLabels, getPost, getComments } from '../config/api';
 
 import Layout from '../components/Layout';
 import ReadMore from '../components/ReadMore';
 
-const SinglePost = withRouter(({ single, labels }) => (
+const SinglePost = withRouter(({ single, labels, comments }) => (
     <Layout labels={labels}>
-        <ReadMore post={single} />
+        <ReadMore post={single} comments={comments} />
     </Layout>
 ));
 
@@ -17,8 +17,11 @@ SinglePost.getInitialProps = async ({ query }) => {
 
     const post = await getPost(query.number);
     const postJson = await post.json();
+
+    const comments = await getComments(query.number);
+    const commentsJson = await comments.json();
     console.log(postJson);
-    return { single: postJson, labels: labelsJson };
+    return { single: postJson, labels: labelsJson, comments: commentsJson };
 };
 
 export default SinglePost;

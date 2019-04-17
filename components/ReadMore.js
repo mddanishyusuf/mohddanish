@@ -1,19 +1,27 @@
 import moment from 'moment';
 import Markdown from 'markdown-to-jsx';
 
+import CommentBox from './CommentBox';
+import { getReadingTime } from '../config/api';
+import { showPublishedDate, showCommentLabel, showReadingTime } from '../config/data';
+
 const HyperLink = ({ children, ...props }) => (
-    <a {...props} href={props.href} target="_blank" rel="noopener noreferrer">
+    <a href={props.href} target="_blank" rel="noopener noreferrer">
         {children}
     </a>
 );
 
-const ReadMore = function({ post }) {
+const ReadMore = function({ post, comments }) {
     return (
         <div>
             <div className="post-header">
-                <div className="title">{post.title}</div>
-                <div className="post-published">
-                    {moment(post.created_at).fromNow()} | {post.comments} comments
+                <div className="post-header-inner">
+                    <div className="title">{post.title}</div>
+                    <div className="post-published">
+                        {showPublishedDate && `${moment(post.created_at).fromNow()} |`}{' '}
+                        {showCommentLabel && `${post.comments} comments | `}{' '}
+                        {showReadingTime && getReadingTime(post.body)}
+                    </div>
                 </div>
             </div>
             <div className="post-body">
@@ -30,17 +38,44 @@ const ReadMore = function({ post }) {
                     {post.body}
                 </Markdown>
             </div>
+            <CommentBox comments={comments} />
+            <hr />
             <style jsx>{`
                 .post-header {
                     padding: 60px;
-                    width: 60%;
-                    margin: 0px auto;
                     text-align: center;
-                    background-color: #f9f9f9;
+                    background: #d3cce3; /* fallback for old browsers */
+                    background: -webkit-linear-gradient(to right, #e9e4f0, #d3cce3); /* Chrome 10-25, Safari 5.1-6 */
+                    background: linear-gradient(
+                        to right,
+                        #e9e4f0,
+                        #d3cce3
+                    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
                 }
+
+                @media screen and (min-width: 700px) {
+                    .post-header-inner {
+                        width: 70%;
+                        margin: 0px auto;
+                    }
+                    .post-body {
+                        width: 60%;
+                        margin: 0px auto;
+                    }
+                }
+                .post-body {
+                    padding: 20px;
+                }
+
+                @media screen and (max-width: 700px) {
+                    .post-header {
+                        padding: 20px 0px;
+                    }
+                }
+
                 .post-header .title {
-                    font-size: 2.5rem;
-                    font-family: MongolianFont;
+                    font-size: 2rem;
+                    line-height: 2.8rem;
                     font-weight: 700;
                     letter-spacing: 1px;
                     width: 80%;
@@ -48,11 +83,6 @@ const ReadMore = function({ post }) {
                 }
                 .post-header .post-published {
                     font-family: 'Shadows Into Light', cursive;
-                }
-                .post-body {
-                    padding: 40px;
-                    width: 60%;
-                    margin: 0px auto;
                 }
             `}</style>
         </div>

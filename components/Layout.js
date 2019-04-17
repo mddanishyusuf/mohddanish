@@ -38,19 +38,24 @@ const Layout = props => {
                     font-weight: 400;
                     line-height: 1.6;
                     color: #333;
+                    font-family: MongolianFont;
                 }
                 h1 {
                     font-weight: 700;
                 }
-                p {
+                p,
+                ol li {
                     font-size: 1.2rem;
                     font-family: MongolianFont;
-                    letter-spacing: 1px;
+                    font-weight: 400;
+                    font-style: normal;
+                    letter-spacing: -0.003em;
                 }
                 h3 {
-                    font-size: 1.6rem;
                     font-family: MongolianFont;
-                    letter-spacing: 1px;
+                    font-size: 26px;
+                    line-height: 1.22;
+                    letter-spacing: -0.012em;
                 }
                 pre {
                     background-color: #f6f8fa;
@@ -64,13 +69,18 @@ const Layout = props => {
                     max-width: 100%;
                 }
 
+                .body-markdown p {
+                    margin-top: 30px;
+                }
+
                 .body-markdown p code,
                 .body-markdown ol li code {
-                    background-color: rgba(27, 31, 35, 0.05);
                     border-radius: 3px;
                     font-size: 85%;
                     margin: 0;
-                    padding: 0.2em 0.4em;
+                    display: block;
+                    background: rgba(0, 0, 0, 0.05);
+                    padding: 20px;
                 }
 
                 @font-face {
