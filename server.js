@@ -29,6 +29,13 @@ app.prepare()
             app.render(req, res, pagePath, queryParams);
         });
 
+        server.get('/page/:pageNumber', (req, res) => {
+            const pagePath = '/';
+            const { pageNumber } = req.params;
+            const queryParams = { pageNumber };
+            app.render(req, res, pagePath, queryParams);
+        });
+
         server.get('*', (req, res) => handle(req, res));
 
         server.listen(3000, err => {

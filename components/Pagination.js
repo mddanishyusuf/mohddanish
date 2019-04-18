@@ -1,19 +1,28 @@
 import { Fragment } from 'react';
 import Link from 'next/link';
 
-function Pagination() {
+import { postPerPage } from '../config/data';
+
+function Pagination({ total, active }) {
+    const numberOfPages = Math.ceil(total / postPerPage);
+    const activePage = parseInt(active);
+    const showPrevious = activePage * postPerPage < total;
     return (
         <Fragment>
             <div className="pagination-box">
                 <div className="previous">
-                    <Link href="/">
-                        <a>← Previous Page</a>
-                    </Link>
+                    {showPrevious && (
+                        <Link href={`/page/${activePage + 1}`}>
+                            <a>← Previous Page</a>
+                        </Link>
+                    )}
                 </div>
                 <div className="older">
-                    <Link href="/">
-                        <a>Next Page →</a>
-                    </Link>
+                    {activePage > 1 && (
+                        <Link href={`/page/${activePage - 1}`}>
+                            <a>Next Page →</a>
+                        </Link>
+                    )}
                 </div>
                 <style jsx>{`
                     .pagination-box {

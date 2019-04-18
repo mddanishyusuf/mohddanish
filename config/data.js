@@ -10,7 +10,7 @@ export const metadata = {
     homeFeaturedImage: 'https://github.com/mddanishyusuf.png',
 };
 
-export const postPerPage = 5;
+export const postPerPage = 4;
 
 export const showPublishedDate = true;
 

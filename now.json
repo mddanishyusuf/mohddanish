@@ -1,0 +1,36 @@
+{
+    "version": 2,
+    "builds": [{
+        "src": "package.json",
+        "use": "@now/next"
+    }],
+    "routes": [{
+            "src": "/post/(?<slug>[a-z0-9-_]+-)(?<number>[0-9]+)",
+            "dest": "/post?number=$number&slug=$slug",
+            "headers": {
+                "cache-control": "max-age=1800"
+            }
+        },
+        {
+            "src": "/page/(?<pageNumber>[0-9]+)",
+            "dest": "/index?pageNumber=$pageNumber",
+            "headers": {
+                "cache-control": "max-age=1800"
+            }
+        },
+        {
+            "src": "/",
+            "dest": "/index",
+            "headers": {
+                "cache-control": "max-age=1800"
+            }
+        },
+        {
+            "src": "/tag/(?<tagName>[a-z]+)",
+            "dest": "/tag?tagName=$tagName",
+            "headers": {
+                "cache-control": "max-age=1800"
+            }
+        }
+    ]
+}

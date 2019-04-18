@@ -8,6 +8,14 @@ import { showPublishedDate, showCommentLabel, showReadingTime } from '../config/
 const HyperLink = ({ children, ...props }) => (
     <a href={props.href} target="_blank" rel="noopener noreferrer">
         {children}
+        <style jsx>
+            {`
+                a {
+                    color: #484848;
+                    font-weight: 700;
+                }
+            `}
+        </style>
     </a>
 );
 
@@ -74,8 +82,8 @@ const ReadMore = function({ post, comments }) {
                 }
 
                 .post-header .title {
-                    font-size: 2rem;
-                    line-height: 2.8rem;
+                    font-size: 2.5rem;
+                    line-height: 3rem;
                     font-weight: 700;
                     letter-spacing: 1px;
                     width: 80%;

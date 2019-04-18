@@ -26,7 +26,10 @@ const Layout = props => {
                 <meta property="og:image" content={homeFeaturedImage} />
                 <meta property="og:description" content={description} />
 
-                <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet" />
+                <link
+                    href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Noto+Serif+JP"
+                    rel="stylesheet"
+                />
             </Head>
             <Header labels={labels} {...metadata} />
             <div className="main">{children}</div>
@@ -45,14 +48,15 @@ const Layout = props => {
                 }
                 p,
                 ol li {
-                    font-size: 1.2rem;
-                    font-family: MongolianFont;
+                    font-size: 1.1rem;
+                    font-family: 'Noto Serif JP', serif;
                     font-weight: 400;
                     font-style: normal;
                     letter-spacing: -0.003em;
+                    line-height: 1.9rem;
                 }
                 h3 {
-                    font-family: MongolianFont;
+                    font-family: 'Noto Serif JP', serif;
                     font-size: 26px;
                     line-height: 1.22;
                     letter-spacing: -0.012em;
@@ -71,6 +75,10 @@ const Layout = props => {
 
                 .body-markdown p {
                     margin-top: 30px;
+                }
+
+                .body-markdown ol li {
+                    padding: 4px 0px;
                 }
 
                 .body-markdown p code,

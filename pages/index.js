@@ -6,7 +6,7 @@ import { PostCard } from '../components/Factory';
 import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
 
-function IndexPage({ posts, totalPosts, labels }) {
+function IndexPage({ posts, totalPosts, labels, activePage }) {
     return (
         <Layout labels={labels}>
             {/* {totalPosts} */}
@@ -16,21 +16,13 @@ function IndexPage({ posts, totalPosts, labels }) {
                         <PostCard postDetail={post} />
                     </div>
                 ))}
-                <Pagination />
+                <Pagination total={totalPosts} active={activePage} />
                 <style jsx>
                     {`
                         .card-container .card:nth-child(odd) {
-                            background: #d3cce3; /* fallback for old browsers */
-                            background: -webkit-linear-gradient(
-                                to right,
-                                #e9e4f0,
-                                #d3cce3
-                            ); /* Chrome 10-25, Safari 5.1-6 */
-                            background: linear-gradient(
-                                to right,
-                                #e9e4f0,
-                                #d3cce3
-                            ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                            background: #d3cce3;
+                            background: -webkit-linear-gradient(to right, #e9e4f0, #d3cce3);
+                            background: linear-gradient(to right, #e9e4f0, #d3cce3);
                         }
                     `}
                 </style>
@@ -39,8 +31,17 @@ function IndexPage({ posts, totalPosts, labels }) {
     );
 }
 
-IndexPage.getInitialProps = async ({ req }) => {
-    const res = await getPosts();
+IndexPage.getInitialProps = async context => {
+    const reqPageNumber = context.query.pageNumber;
+    let pageNumber;
+    if (reqPageNumber === undefined) {
+        pageNumber = 1;
+    } else {
+        pageNumber = reqPageNumber;
+    }
+    console.log(pageNumber);
+
+    const res = await getPosts(pageNumber);
     const json = await res.json();
 
     const repoRes = await getRepoInfo();
@@ -48,7 +49,7 @@ IndexPage.getInitialProps = async ({ req }) => {
 
     const labels = await getLabels();
     const labelsJson = await labels.json();
-    return { posts: json, totalPosts: repoJson.open_issues_count, labels: labelsJson };
+    return { posts: json, totalPosts: repoJson.open_issues_count, labels: labelsJson, activePage: pageNumber };
 };
 
 export default IndexPage;

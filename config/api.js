@@ -1,14 +1,16 @@
 import fetch from 'isomorphic-unfetch';
 import readingTime from 'reading-time';
-import { repositoryName } from './data';
+import { repositoryName, postPerPage } from './data';
 
 export function getRepoInfo() {
     return fetch(`https://api.github.com/repos/${repositoryName}?access_token=${process.env.GITHUB_ACCESS_TOKEN}`);
 }
 
-export function getPosts() {
+export function getPosts(pageNumber) {
     return fetch(
-        `https://api.github.com/repos/${repositoryName}/issues?access_token=${process.env.GITHUB_ACCESS_TOKEN}`
+        `https://api.github.com/repos/${repositoryName}/issues?page=${pageNumber}&per_page=${postPerPage}&access_token=${
+            process.env.GITHUB_ACCESS_TOKEN
+        }`
     );
 }
 

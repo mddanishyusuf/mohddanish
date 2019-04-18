@@ -3,7 +3,7 @@ import moment from 'moment';
 import Markdown from 'markdown-to-jsx';
 
 const HyperLink = ({ children, ...props }) => (
-    <a {...props} href={props.href} target="_blank">
+    <a href={props.href} target="_blank" rel="noopener noreferrer">
         {children}
     </a>
 );
@@ -65,6 +65,7 @@ const Comments = function({ comments }) {
                     .comment-body .comment-head .comment-meta {
                         font-size: 13px;
                         letter-spacing: 1px;
+                        font-family: 'Noto Serif JP', serif;
                     }
 
                     .comment-text {
@@ -85,6 +86,8 @@ const Comments = function({ comments }) {
                     .no-comments {
                         font-size: 14px;
                         margin-bottom: 20px;
+                        font-family: 'Noto Serif JP', serif;
+                        padding: 20px 0px;
                     }
                 `}
             </style>
@@ -115,6 +118,7 @@ const CommentBox = function({ comments }) {
                     .no-comments {
                         font-size: 14px;
                         margin-bottom: 20px;
+                        font-family: 'Noto Serif JP', serif;
                     }
 
                     @media screen and (max-width: 700px) {

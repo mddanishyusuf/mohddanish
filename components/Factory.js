@@ -153,9 +153,10 @@ export function PostCard({ postDetail }) {
                     }
 
                     .post-summary {
-                        font-family: MongolianFont;
-                        letter-spacing: 0.9px;
-                        font-size: 1.1rem;
+                        font-family: 'Noto Serif JP', serif;
+                        line-height: 1.7rem;
+                        letter-spacing: 1px;
+                        font-size: 1rem;
                         margin-top: 20px;
                     }
                     .post-summary span {
