@@ -31,12 +31,12 @@ function PostSlug({ title, label, number }) {
 export function Navbar({ labels, isMobileNavOpen, closenavbar }) {
     return (
         <div className="top-navbar">
-            {isMobileNavOpen && <div className="mobile-navbar-bg" onClick={closenavbar} />}
+            {isMobileNavOpen && <div className="mobile-navbar-bg" role="presentation" onClick={closenavbar} />}
 
             <ul className={`${isMobileNavOpen && 'open-navbar'}`}>
                 {labels.map(label => (
                     <li key={label.id}>
-                        <Link href="/">
+                        <Link href={`/tag/${label.name}`}>
                             <a>{label.name}</a>
                         </Link>
                     </li>

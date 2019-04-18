@@ -21,6 +21,14 @@ app.prepare()
             app.render(req, res, pagePath, queryParams);
         });
 
+        server.get('/tag/:tagName', (req, res) => {
+            const pagePath = '/tag';
+            const { tagName } = req.params;
+            const queryParams = { tagName };
+
+            app.render(req, res, pagePath, queryParams);
+        });
+
         server.get('*', (req, res) => handle(req, res));
 
         server.listen(3000, err => {

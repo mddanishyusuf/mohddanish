@@ -34,6 +34,14 @@ export function getComments(number) {
     );
 }
 
+export function getPostsByTag(tagName) {
+    return fetch(
+        `https://api.github.com/repos/${repositoryName}/issues?labels=${tagName}&access_token=${
+            process.env.GITHUB_ACCESS_TOKEN
+        }`
+    );
+}
+
 export function getReadingTime(text) {
     const timeObj = readingTime(text);
     return timeObj.text;
