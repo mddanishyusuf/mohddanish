@@ -41,6 +41,11 @@ export function Navbar({ labels, isMobileNavOpen, closenavbar }) {
                         </Link>
                     </li>
                 ))}
+                <li>
+                    <Link href="/blog">
+                        <a>blog</a>
+                    </Link>
+                </li>
             </ul>
             <style jsx>
                 {`
@@ -156,8 +161,79 @@ export function PostCard({ postDetail }) {
                         font-family: 'Noto Serif JP', serif;
                         line-height: 1.7rem;
                         letter-spacing: 1px;
-                        font-size: 1rem;
+                        font-size: 0.9rem;
                         margin-top: 20px;
+                    }
+                    .post-summary span {
+                        font-family: 'Shadows Into Light', cursive;
+                        color: #3832dc;
+                    }
+                `}
+            </style>
+        </div>
+    );
+}
+
+export function PostCardHome({ postDetail }) {
+    return (
+        <div className="post-card">
+            <div className="post-label">{postDetail.labels[0].name}</div>
+            <div className="post-title">
+                <PostSlug title={postDetail.title} label={postDetail.title} number={postDetail.number} />
+            </div>
+            <div className="post-date">
+                {showPublishedDate && `${moment(postDetail.created_at).fromNow()} |`}{' '}
+                {showReadingTime && getReadingTime(postDetail.body)}
+            </div>
+            <div className="post-summary">
+                {postDetail.body.substr(0, 60)}{' '}
+                <span>
+                    <PostSlug title={postDetail.title} number={postDetail.number} label="read more" />
+                </span>
+            </div>
+            <div className="post-title" />
+            <style jsx>
+                {`
+                    @media screen and (min-width: 700px) {
+                        .post-card {
+                            width: 70%;
+                            margin: 0 auto;
+                        }
+                    }
+
+                    .post-card {
+                        padding: 0px;
+                    }
+                    .post-label {
+                        font-family: 'Shadows Into Light', cursive;
+                        font-size: 0.7rem;
+                        border: 1px solid #707070;
+                        display: inline-block;
+                        padding: 0px 15px;
+                        letter-spacing: 1.5px;
+                        border-radius: 3px;
+                    }
+
+                    .post-title {
+                        font-size: 1.4rem;
+                        line-height: 2rem;
+                        padding-top: 10px;
+                    }
+
+                    .post-date {
+                        font-family: 'Noto Serif JP', serif;
+                        font-size: 0.8rem;
+                        font-weight: 700;
+                        padding: 4px 0px;
+                        opacity: 0.7;
+                    }
+
+                    .post-summary {
+                        font-family: 'Noto Serif JP', serif;
+                        line-height: 1.4rem;
+                        letter-spacing: 1px;
+                        font-size: 0.8rem;
+                        margin-top: 5px;
                     }
                     .post-summary span {
                         font-family: 'Shadows Into Light', cursive;

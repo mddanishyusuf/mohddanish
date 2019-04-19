@@ -1,26 +1,22 @@
 import React from 'react';
 
 import { getPosts, getRepoInfo, getLabels } from '../config/api';
-import { PostCard, PostCardHome } from '../components/Factory';
+import { PostCard } from '../components/Factory';
 
 import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
-import GitHubRepoList from '../components/GitHubRepoList';
-import ArticleShowcase from '../components/ArticleShowcase';
 
 function IndexPage({ posts, totalPosts, labels, activePage }) {
     return (
         <Layout labels={labels}>
             {/* {totalPosts} */}
             <div className="card-container">
-                {/* {posts.map(post => (
+                {posts.map(post => (
                     <div className="card" key={post.id}>
                         <PostCard postDetail={post} />
                     </div>
-                ))} */}
-                <ArticleShowcase posts={posts} />
-                <GitHubRepoList />
-                {/* <Pagination total={totalPosts} active={activePage} /> */}
+                ))}
+                <Pagination total={totalPosts} active={activePage} />
                 <style jsx>
                     {`
                         .card-container .card:nth-child(odd) {

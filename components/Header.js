@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { withRouter } from 'next/router';
 import { Navbar } from './Factory';
 
-const Header = function({ labels, logoName, logoSubtitle }) {
+const Header = function({ labels, logoName, logoSubtitle, summary, router }) {
     const [mobileNav, setMobilenav] = useState(false);
 
     const toggleNavbar = () => {
@@ -27,6 +28,14 @@ const Header = function({ labels, logoName, logoSubtitle }) {
                     Menu
                 </div>
             </header>
+            {router.asPath === '/' && (
+                <div className="profile-container">
+                    <div className="user-image">
+                        <img src="https://github.com/mddanishyusuf.png" alt="mohd danish" />
+                    </div>
+                    <div className="user-bio" dangerouslySetInnerHTML={{ __html: summary }} />
+                </div>
+            )}
             <style jsx global>
                 {`
                     body {
@@ -49,6 +58,27 @@ const Header = function({ labels, logoName, logoSubtitle }) {
                     opacity: 0.6;
                     font-size: 0.9rem;
                 }
+
+                .profile-container {
+                    text-align: center;
+                    padding-bottom: 80px;
+                }
+
+                .profile-container img {
+                    width: 100px;
+                    border-radius: 50%;
+                    border: 3px solid #707070;
+                }
+
+                .user-bio {
+                    font-family: 'Noto Serif JP', serif;
+                    font-size: 0.9rem;
+                    color: #707070;
+                    letter-spacing: 1px;
+                    line-height: 1.8rem;
+                    padding: 20px;
+                }
+
                 @media screen and (min-width: 700px) {
                     header {
                         display: grid;
@@ -61,6 +91,10 @@ const Header = function({ labels, logoName, logoSubtitle }) {
                     }
                     .menu-bar {
                         display: none;
+                    }
+                    .user-bio {
+                        width: 50%;
+                        margin: 0 auto;
                     }
                 }
                 @media screen and (max-width: 700px) {
@@ -76,4 +110,4 @@ const Header = function({ labels, logoName, logoSubtitle }) {
     );
 };
 
-export default Header;
+export default withRouter(Header);

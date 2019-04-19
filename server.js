@@ -21,6 +21,12 @@ app.prepare()
             app.render(req, res, pagePath, queryParams);
         });
 
+        server.get('/blog', (req, res) => {
+            const pagePath = '/blog';
+
+            app.render(req, res, pagePath);
+        });
+
         server.get('/tag/:tagName', (req, res) => {
             const pagePath = '/tag';
             const { tagName } = req.params;
@@ -29,7 +35,7 @@ app.prepare()
             app.render(req, res, pagePath, queryParams);
         });
 
-        server.get('/page/:pageNumber', (req, res) => {
+        server.get('/blog/page/:pageNumber', (req, res) => {
             const pagePath = '/';
             const { pageNumber } = req.params;
             const queryParams = { pageNumber };

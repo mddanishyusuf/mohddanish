@@ -12,14 +12,14 @@ function Pagination({ total, active }) {
             <div className="pagination-box">
                 <div className="previous">
                     {showPrevious && (
-                        <Link href={`/page/${activePage + 1}`}>
+                        <Link href={`/blog/page/${activePage + 1}`}>
                             <a>← Previous Page</a>
                         </Link>
                     )}
                 </div>
                 <div className="older">
                     {activePage > 1 && (
-                        <Link href={`/page/${activePage - 1}`}>
+                        <Link href={`/blog/page/${activePage - 1}`}>
                             <a>Next Page →</a>
                         </Link>
                     )}

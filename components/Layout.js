@@ -48,7 +48,7 @@ const Layout = props => {
                 }
                 p,
                 ol li {
-                    font-size: 1.1rem;
+                    font-size: 1rem;
                     font-family: 'Noto Serif JP', serif;
                     font-weight: 400;
                     font-style: normal;
