@@ -1,14 +1,16 @@
 import React from 'react';
 
-import { getPosts, getRepoInfo, getLabels } from '../config/api';
+import { getPosts, getRepoInfo, getLabels, getData } from '../config/api';
 import { PostCard, PostCardHome } from '../components/Factory';
 
 import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
 import GitHubRepoList from '../components/GitHubRepoList';
 import ArticleShowcase from '../components/ArticleShowcase';
+import Skills from '../components/Skills';
+import PersonalProjects from '../components/PersonalProjects';
 
-function IndexPage({ posts, totalPosts, labels, activePage }) {
+function IndexPage({ posts, totalPosts, labels, activePage, skills, projects, openSourceProjects }) {
     return (
         <Layout labels={labels}>
             {/* {totalPosts} */}
@@ -19,7 +21,9 @@ function IndexPage({ posts, totalPosts, labels, activePage }) {
                     </div>
                 ))} */}
                 <ArticleShowcase posts={posts} />
-                <GitHubRepoList />
+                <GitHubRepoList openSourceProject={openSourceProjects} />
+                <Skills skills={skills} />
+                <PersonalProjects projects={projects} />
                 {/* <Pagination total={totalPosts} active={activePage} /> */}
                 <style jsx>
                     {`
@@ -53,7 +57,18 @@ IndexPage.getInitialProps = async context => {
 
     const labels = await getLabels();
     const labelsJson = await labels.json();
-    return { posts: json, totalPosts: repoJson.open_issues_count, labels: labelsJson, activePage: pageNumber };
+
+    const data = await getData();
+
+    return {
+        posts: json,
+        totalPosts: repoJson.open_issues_count,
+        labels: labelsJson,
+        activePage: pageNumber,
+        skills: data.skillList,
+        projects: data.projectsList,
+        openSourceProjects: data.openSourceList,
+    };
 };
 
 export default IndexPage;

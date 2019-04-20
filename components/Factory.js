@@ -19,7 +19,7 @@ function PostSlug({ title, label, number }) {
             <style jsx>
                 {`
                     a {
-                        color: ${label === 'read more' ? '#3832DC' : '#707070'};
+                        color: ${label === 'read more' ? '#3832DC' : '#010101'};
                         text-decoration: none;
                     }
                 `}
@@ -127,14 +127,15 @@ export function PostCard({ postDetail }) {
                             padding: 60px;
                             width: 70%;
                             margin: 0 auto;
+                            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
                         }
                     }
 
                     .post-card {
                         padding: 40px 20px;
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
                     }
                     .post-label {
-                        font-family: 'Shadows Into Light', cursive;
                         font-size: 0.7rem;
                         border: 1px solid #707070;
                         display: inline-block;
@@ -150,7 +151,6 @@ export function PostCard({ postDetail }) {
                     }
 
                     .post-date {
-                        font-family: 'Shadows Into Light', cursive;
                         letter-spacing: 3px;
                         font-size: 0.8rem;
                         font-weight: 700;
@@ -165,7 +165,6 @@ export function PostCard({ postDetail }) {
                         margin-top: 20px;
                     }
                     .post-summary span {
-                        font-family: 'Shadows Into Light', cursive;
                         color: #3832dc;
                     }
                 `}
@@ -221,7 +220,6 @@ export function PostCardHome({ postDetail }) {
                     }
 
                     .post-date {
-                        font-family: 'Noto Serif JP', serif;
                         font-size: 0.8rem;
                         font-weight: 700;
                         padding: 4px 0px;
@@ -229,7 +227,6 @@ export function PostCardHome({ postDetail }) {
                     }
 
                     .post-summary {
-                        font-family: 'Noto Serif JP', serif;
                         line-height: 1.4rem;
                         letter-spacing: 1px;
                         font-size: 0.8rem;

@@ -46,17 +46,16 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router }) {
             <style jsx>{`
                 .logo-title a {
                     font-size: 1.5rem;
-                    font-family: MongolianFont;
+                    font-family: 'Poppins', sans-serif;
                     text-decoration: none;
-                    color: #707070;
+                    color: #010101;
                     letter-spacing: 1px;
                     line-height: 1.8rem;
                 }
                 .sub-title {
-                    font-family: 'Shadows Into Light', cursive;
-                    font-weight: 700;
+                    font-family: 'Poppins', sans-serif;
                     opacity: 0.6;
-                    font-size: 0.9rem;
+                    font-size: 0.8rem;
                 }
 
                 .profile-container {
@@ -71,10 +70,10 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router }) {
                 }
 
                 .user-bio {
-                    font-family: 'Noto Serif JP', serif;
+                    font-family: 'Poppins', sans-serif;
                     font-size: 0.9rem;
                     color: #707070;
-                    letter-spacing: 1px;
+                    letter-spacing: 0.5px;
                     line-height: 1.8rem;
                     padding: 20px;
                 }

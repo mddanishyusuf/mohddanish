@@ -7,7 +7,7 @@ export const metadata = {
     description:
         'Article about coding, foods, tricks and new things I learn daily. So, It is my daily knowledge base book so called a personal blog',
     summary:
-        "Hey 👋, I'm Mohd Danish and I'm Front-end Engineer @anantcorp, Maker of http://public-apis.xyz, https://dailyhack.xyz, https://react-index.com & Open Source Developer, Tech Writer, Foodie 🍳",
+        "Hey 👋, I'm Mohd Danish and I'm Front-end Engineer @anantcorp, Maker of https://public-apis.xyz, https://dailyhack.xyz, https://react-index.com & Open Source Developer, Tech Writer, Foodie 🍳",
     homeFeaturedImage: 'https://github.com/mddanishyusuf.png',
 };
 

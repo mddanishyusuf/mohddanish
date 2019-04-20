@@ -44,6 +44,31 @@ export function getPostsByTag(tagName) {
     );
 }
 
+export async function getData() {
+    const contentsArray = await fetch(
+        `https://api.github.com/repos/mddanishyusuf/profile-with-github/contents?access_token=${
+            process.env.GITHUB_ACCESS_TOKEN
+        }`
+    );
+    const contentURLObj = await contentsArray.json();
+
+    const openSourceContentIndex = contentURLObj.findIndex(x => x.name === 'open-source-projects.json');
+
+    const projectsContentIndex = contentURLObj.findIndex(x => x.name === 'projects.json');
+
+    const skillContentIndex = contentURLObj.findIndex(x => x.name === 'skills.json');
+
+    const openSourceContent = await fetch(contentURLObj[openSourceContentIndex].download_url);
+    const projectsContent = await fetch(contentURLObj[projectsContentIndex].download_url);
+    const skillContent = await fetch(contentURLObj[skillContentIndex].download_url);
+
+    const openSourceList = await openSourceContent.json();
+    const projectsList = await projectsContent.json();
+    const skillList = await skillContent.json();
+
+    return { openSourceList, projectsList, skillList };
+}
+
 export function getReadingTime(text) {
     const timeObj = readingTime(text);
     return timeObj.text;

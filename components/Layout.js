@@ -27,9 +27,11 @@ const Layout = props => {
                 <meta property="og:description" content={description} />
 
                 <link
-                    href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Noto+Serif+JP"
+                    href="https://fonts.googleapis.com/css?family=Poppins|Shadows+Into+Light|Noto+Serif+JP"
                     rel="stylesheet"
                 />
+                <link href="/static/devicon.css" rel="stylesheet" />
+                <link href="/static/devicon-colors.css" rel="stylesheet" />
             </Head>
             <Header labels={labels} {...metadata} />
             <div className="main">{children}</div>
@@ -41,7 +43,7 @@ const Layout = props => {
                     font-weight: 400;
                     line-height: 1.6;
                     color: #333;
-                    font-family: MongolianFont;
+                    font-family: 'Poppins', sans-serif;
                 }
                 h1 {
                     font-weight: 700;
@@ -49,14 +51,13 @@ const Layout = props => {
                 p,
                 ol li {
                     font-size: 1rem;
-                    font-family: 'Noto Serif JP', serif;
                     font-weight: 400;
                     font-style: normal;
                     letter-spacing: -0.003em;
                     line-height: 1.9rem;
+                    font-family: 'Poppins', sans-serif;
                 }
                 h3 {
-                    font-family: 'Noto Serif JP', serif;
                     font-size: 26px;
                     line-height: 1.22;
                     letter-spacing: -0.012em;

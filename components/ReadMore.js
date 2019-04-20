@@ -82,15 +82,17 @@ const ReadMore = function({ post, comments }) {
                 }
 
                 .post-header .title {
-                    font-size: 2.5rem;
+                    font-size: 2.3rem;
                     line-height: 3rem;
                     font-weight: 700;
                     letter-spacing: 1px;
                     width: 80%;
                     margin: 0px auto;
+                    color: #707070;
                 }
                 .post-header .post-published {
-                    font-family: 'Shadows Into Light', cursive;
+                    font-size: 0.8rem;
+                    padding: 10px;
                 }
             `}</style>
         </div>

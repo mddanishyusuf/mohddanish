@@ -17,7 +17,8 @@ function ArticleShowcase({ posts }) {
                         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
                     }
                     .article-showcase-list .card {
-                        padding: 20px;
+                        padding: 20px 0px;
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
                     }
                     .article-showcase-list .card:nth-child(odd) {
                         background: #d3cce3;
