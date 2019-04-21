@@ -28,22 +28,28 @@ function PostSlug({ title, label, number }) {
     );
 }
 
-export function Navbar({ labels, isMobileNavOpen, closenavbar }) {
+export function Navbar({ labels, isMobileNavOpen, closenavbar, router }) {
     return (
         <div className="top-navbar">
             {isMobileNavOpen && <div className="mobile-navbar-bg" role="presentation" onClick={closenavbar} />}
 
             <ul className={`${isMobileNavOpen && 'open-navbar'}`}>
-                {labels.map(label => (
-                    <li key={label.id}>
-                        <Link href={`/tag/${label.name}`}>
-                            <a>{label.name}</a>
-                        </Link>
-                    </li>
-                ))}
+                {router.asPath !== '/' &&
+                    labels.map(label => (
+                        <li key={label.id}>
+                            <Link href={`/tag/${label.name}`}>
+                                <a>{label.name}</a>
+                            </Link>
+                        </li>
+                    ))}
                 <li>
                     <Link href="/blog">
                         <a>blog</a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/blog">
+                        <a>Hire Me</a>
                     </Link>
                 </li>
             </ul>
@@ -127,13 +133,11 @@ export function PostCard({ postDetail }) {
                             padding: 60px;
                             width: 70%;
                             margin: 0 auto;
-                            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
                         }
                     }
 
                     .post-card {
                         padding: 40px 20px;
-                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
                     }
                     .post-label {
                         font-size: 0.7rem;
@@ -142,29 +146,30 @@ export function PostCard({ postDetail }) {
                         padding: 0px 15px;
                         letter-spacing: 1.5px;
                         border-radius: 3px;
+                        font-family: 'Shadows Into Light', cursive;
                     }
 
                     .post-title {
-                        font-size: 2rem;
-                        line-height: 2.8rem;
-                        padding: 10px 0px;
+                        font-size: 1.4rem;
+                        line-height: 2rem;
+                        padding-top: 10px;
                     }
 
                     .post-date {
-                        letter-spacing: 3px;
                         font-size: 0.8rem;
                         font-weight: 700;
                         padding: 4px 0px;
+                        opacity: 0.7;
                     }
 
                     .post-summary {
-                        font-family: 'Noto Serif JP', serif;
-                        line-height: 1.7rem;
+                        line-height: 1.4rem;
                         letter-spacing: 1px;
-                        font-size: 0.9rem;
-                        margin-top: 20px;
+                        font-size: 0.8rem;
+                        margin-top: 5px;
                     }
                     .post-summary span {
+                        font-family: 'Shadows Into Light', cursive;
                         color: #3832dc;
                     }
                 `}

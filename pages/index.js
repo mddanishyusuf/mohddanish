@@ -9,8 +9,9 @@ import GitHubRepoList from '../components/GitHubRepoList';
 import ArticleShowcase from '../components/ArticleShowcase';
 import Skills from '../components/Skills';
 import PersonalProjects from '../components/PersonalProjects';
+import LetsConnect from '../components/LetsConnect';
 
-function IndexPage({ posts, totalPosts, labels, activePage, skills, projects, openSourceProjects }) {
+function IndexPage({ posts, totalPosts, labels, activePage, skills, projects, openSourceProjects, social }) {
     return (
         <Layout labels={labels}>
             {/* {totalPosts} */}
@@ -22,7 +23,8 @@ function IndexPage({ posts, totalPosts, labels, activePage, skills, projects, op
                 ))} */}
                 <ArticleShowcase posts={posts} />
                 <GitHubRepoList openSourceProject={openSourceProjects} />
-                <Skills skills={skills} />
+                <LetsConnect socialLinks={social} />
+                <Skills skillsObj={skills} />
                 <PersonalProjects projects={projects} />
                 {/* <Pagination total={totalPosts} active={activePage} /> */}
                 <style jsx>
@@ -68,6 +70,7 @@ IndexPage.getInitialProps = async context => {
         skills: data.skillList,
         projects: data.projectsList,
         openSourceProjects: data.openSourceList,
+        social: data.social,
     };
 };
 

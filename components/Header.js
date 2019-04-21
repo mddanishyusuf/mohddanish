@@ -22,7 +22,7 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router }) {
                     </div>
                 </div>
                 <div className="labels">
-                    <Navbar labels={labels} isMobileNavOpen={mobileNav} closenavbar={toggleNavbar} />
+                    <Navbar labels={labels} router={router} isMobileNavOpen={mobileNav} closenavbar={toggleNavbar} />
                 </div>
                 <div className="menu-bar" role="presentation" onClick={toggleNavbar}>
                     Menu
@@ -65,6 +65,7 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router }) {
 
                 .profile-container img {
                     width: 100px;
+                    height: 100px;
                     border-radius: 50%;
                     border: 3px solid #707070;
                 }

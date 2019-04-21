@@ -86,6 +86,7 @@ function GitHubCard({ obj }) {
                             }
                             .repo-name a {
                                 text-decoration: none;
+                                color: #010101;
                             }
                             .owner-pic img {
                                 width: 50px;
@@ -128,14 +129,11 @@ function GitHubRepoList({ openSourceProject }) {
     return (
         <div className="osp-container">
             <div className="section-heading">
-                <h2>Open Source Projects</h2>
-                <small>
-                    I'm really pasionate about open source projects. I'm following a community
-                    <br /> where many top developers do open source in their free time.
-                </small>
+                <h2>{openSourceProject.title}</h2>
+                <small dangerouslySetInnerHTML={{ __html: openSourceProject.subHeading }} />
             </div>
             <section className="github-project-list">
-                {openSourceProject.map(osProject => (
+                {openSourceProject.projects.map(osProject => (
                     <div className="item" key={osProject.name}>
                         <GitHubCard obj={osProject} />
                     </div>

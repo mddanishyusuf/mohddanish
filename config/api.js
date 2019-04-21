@@ -58,15 +58,19 @@ export async function getData() {
 
     const skillContentIndex = contentURLObj.findIndex(x => x.name === 'skills.json');
 
+    const socialLinks = contentURLObj.findIndex(x => x.name === 'find-me.json');
+
     const openSourceContent = await fetch(contentURLObj[openSourceContentIndex].download_url);
     const projectsContent = await fetch(contentURLObj[projectsContentIndex].download_url);
     const skillContent = await fetch(contentURLObj[skillContentIndex].download_url);
+    const socialLinksContent = await fetch(contentURLObj[socialLinks].download_url);
 
     const openSourceList = await openSourceContent.json();
     const projectsList = await projectsContent.json();
     const skillList = await skillContent.json();
+    const social = await socialLinksContent.json();
 
-    return { openSourceList, projectsList, skillList };
+    return { openSourceList, projectsList, skillList, social };
 }
 
 export function getReadingTime(text) {

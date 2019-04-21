@@ -1,15 +1,12 @@
 // https://konpa.github.io/devicon/
 
-function Skills({ skills }) {
+function Skills({ skillsObj }) {
     return (
         <div className="skills-container">
-            <h2>My Skills</h2>
-            <small>
-                I learn all these skills while developing projects. <br />
-                So, I alwasy keen to learn new stuffs and technologies. I can do more.
-            </small>
+            <h2>{skillsObj.title}</h2>
+            <small dangerouslySetInnerHTML={{ __html: skillsObj.subHeading }} />
             <section className="skills-project-list">
-                {skills.map(skill => (
+                {skillsObj.skills.map(skill => (
                     <div className="item" key={skill.name}>
                         <i className={skill.icon_name} />
                     </div>
