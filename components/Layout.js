@@ -23,7 +23,7 @@ const Layout = props => {
                 <meta property="og:title" content={title} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={pageUrl} />
-                <meta property="og:image" content={homeFeaturedImage} />
+                <meta property="og:image" content="/static/home-featured-image.png" />
                 <meta property="og:description" content={description} />
 
                 <link
