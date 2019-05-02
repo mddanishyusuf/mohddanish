@@ -6,7 +6,8 @@ import { metadata } from '../config/data';
 import globalStyles from '../styles/global.js';
 
 const Layout = props => {
-    const { children, labels } = props;
+    const { children, labels, aboutMe } = props;
+    console.log('aboutME', aboutMe);
     const { title, description, pageUrl, homeFeaturedImage } = metadata;
     return (
         <div>
@@ -33,7 +34,7 @@ const Layout = props => {
                 <link href="/static/devicon.css" rel="stylesheet" />
                 <link href="/static/devicon-colors.css" rel="stylesheet" />
             </Head>
-            <Header labels={labels} {...metadata} />
+            <Header labels={labels} {...metadata} aboutMe={aboutMe} />
             <div className="main">{children}</div>
             <Footer />
             <style jsx global>{`

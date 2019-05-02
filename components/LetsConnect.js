@@ -3,7 +3,7 @@
 function LetsConnect({ socialLinks }) {
     return (
         <div className="social-container">
-            <h2>{socialLinks.title}</h2>
+            <h2>👋 {socialLinks.title}</h2>
             <small dangerouslySetInnerHTML={{ __html: socialLinks.subHeading }} />
             <section className="social-project-list">
                 {socialLinks.plateform.map(social => (
@@ -21,6 +21,12 @@ function LetsConnect({ socialLinks }) {
                 {`
                     .social-container {
                         padding: 80px;
+                    }
+
+                    @media (max-width: 700px) {
+                        .social-container {
+                            padding: 20px !important;
+                        }
                     }
                     .social-container h2 {
                         margin: 0;

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { withRouter } from 'next/router';
 import { Navbar } from './Factory';
 
-const Header = function({ labels, logoName, logoSubtitle, summary, router }) {
+const Header = function({ labels, logoName, logoSubtitle, summary, router, aboutMe }) {
     const [mobileNav, setMobilenav] = useState(false);
 
     const toggleNavbar = () => {
@@ -33,7 +33,7 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router }) {
                     <div className="user-image">
                         <img src="https://github.com/mddanishyusuf.png" alt="mohd danish" />
                     </div>
-                    <div className="user-bio" dangerouslySetInnerHTML={{ __html: summary }} />
+                    <div className="user-bio" dangerouslySetInnerHTML={{ __html: aboutMe.coverLetter }} />
                 </div>
             )}
             <style jsx global>

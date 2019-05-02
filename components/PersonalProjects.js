@@ -4,7 +4,7 @@ function PersonalProjects({ projects }) {
     return (
         <div className="side-projects">
             <div className="section-heading">
-                <h2>{projects.title}</h2>
+                <h2>🚀 {projects.title}</h2>
                 <small dangerouslySetInnerHTML={{ __html: projects.subHeading }} />
             </div>
             <section className="side-project-list">
@@ -72,6 +72,19 @@ function PersonalProjects({ projects }) {
                         text-shadow: none;
                         display: inline-block;
                         border-radius: 3px;
+                    }
+
+                    @media (max-width: 700px) {
+                        .side-projects {
+                            padding: 20px;
+                        }
+                    }
+
+                    @media (max-width: 500px) {
+                        .side-project {
+                            display: grid;
+                            grid-template-columns: 100%;
+                        }
                     }
                 `}
             </style>

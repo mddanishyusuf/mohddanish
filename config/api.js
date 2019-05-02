@@ -46,31 +46,30 @@ export function getPostsByTag(tagName) {
 
 export async function getData() {
     const contentsArray = await fetch(
-        `https://api.github.com/repos/mddanishyusuf/profile-with-github/contents?access_token=${
-            process.env.GITHUB_ACCESS_TOKEN
-        }`
+        `https://raw.githubusercontent.com/mddanishyusuf/profile-with-github/master/profile.json`
     );
-    const contentURLObj = await contentsArray.json();
+    const profileObj = await contentsArray.json();
 
-    const openSourceContentIndex = contentURLObj.findIndex(x => x.name === 'open-source-projects.json');
+    // const openSourceContentIndex = contentURLObj.findIndex(x => x.name === 'open-source-projects.json');
 
-    const projectsContentIndex = contentURLObj.findIndex(x => x.name === 'projects.json');
+    // const projectsContentIndex = contentURLObj.findIndex(x => x.name === 'projects.json');
 
-    const skillContentIndex = contentURLObj.findIndex(x => x.name === 'skills.json');
+    // const skillContentIndex = contentURLObj.findIndex(x => x.name === 'skills.json');
 
-    const socialLinks = contentURLObj.findIndex(x => x.name === 'find-me.json');
+    // const socialLinks = contentURLObj.findIndex(x => x.name === 'find-me.json');
 
-    const openSourceContent = await fetch(contentURLObj[openSourceContentIndex].download_url);
-    const projectsContent = await fetch(contentURLObj[projectsContentIndex].download_url);
-    const skillContent = await fetch(contentURLObj[skillContentIndex].download_url);
-    const socialLinksContent = await fetch(contentURLObj[socialLinks].download_url);
+    // const openSourceContent = await fetch(contentURLObj[openSourceContentIndex].download_url);
+    // const projectsContent = await fetch(contentURLObj[projectsContentIndex].download_url);
+    // const skillContent = await fetch(contentURLObj[skillContentIndex].download_url);
+    // const socialLinksContent = await fetch(contentURLObj[socialLinks].download_url);
 
-    const openSourceList = await openSourceContent.json();
-    const projectsList = await projectsContent.json();
-    const skillList = await skillContent.json();
-    const social = await socialLinksContent.json();
+    const openSourceList = profileObj.openSourceProjects;
+    const projectsList = profileObj.sideProjects;
+    const skillList = profileObj.skills;
+    const social = profileObj.letsConnect;
+    const { aboutMe } = profileObj;
 
-    return { openSourceList, projectsList, skillList, social };
+    return { openSourceList, projectsList, skillList, social, aboutMe };
 }
 
 export function getReadingTime(text) {

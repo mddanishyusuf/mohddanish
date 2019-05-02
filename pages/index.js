@@ -1,32 +1,23 @@
 import React from 'react';
 
-import { getPosts, getRepoInfo, getLabels, getData } from '../config/api';
-import { PostCard, PostCardHome } from '../components/Factory';
+import { getPosts, getData } from '../config/api';
 
 import Layout from '../components/Layout';
-import Pagination from '../components/Pagination';
 import GitHubRepoList from '../components/GitHubRepoList';
 import ArticleShowcase from '../components/ArticleShowcase';
 import Skills from '../components/Skills';
 import PersonalProjects from '../components/PersonalProjects';
 import LetsConnect from '../components/LetsConnect';
 
-function IndexPage({ posts, totalPosts, labels, activePage, skills, projects, openSourceProjects, social }) {
+function IndexPage({ posts, labels, skills, projects, openSourceProjects, social, aboutMe }) {
     return (
-        <Layout labels={labels}>
-            {/* {totalPosts} */}
+        <Layout labels={labels} aboutMe={aboutMe}>
             <div className="card-container">
-                {/* {posts.map(post => (
-                    <div className="card" key={post.id}>
-                        <PostCard postDetail={post} />
-                    </div>
-                ))} */}
                 <ArticleShowcase posts={posts} />
                 <GitHubRepoList openSourceProject={openSourceProjects} />
                 <LetsConnect socialLinks={social} />
                 <Skills skillsObj={skills} />
                 <PersonalProjects projects={projects} />
-                {/* <Pagination total={totalPosts} active={activePage} /> */}
                 <style jsx>
                     {`
                         .card-container .card:nth-child(odd) {
@@ -41,32 +32,16 @@ function IndexPage({ posts, totalPosts, labels, activePage, skills, projects, op
     );
 }
 
-IndexPage.getInitialProps = async context => {
-    const reqPageNumber = context.query.pageNumber;
-    let pageNumber;
-    if (reqPageNumber === undefined) {
-        pageNumber = 1;
-    } else {
-        pageNumber = reqPageNumber;
-    }
-    console.log(pageNumber);
-
-    const res = await getPosts(pageNumber);
+IndexPage.getInitialProps = async () => {
+    const res = await getPosts(1);
     const json = await res.json();
-
-    const repoRes = await getRepoInfo();
-    const repoJson = await repoRes.json();
-
-    const labels = await getLabels();
-    const labelsJson = await labels.json();
 
     const data = await getData();
 
     return {
         posts: json,
-        totalPosts: repoJson.open_issues_count,
-        labels: labelsJson,
-        activePage: pageNumber,
+        aboutMe: data.aboutMe,
+        activePage: 1,
         skills: data.skillList,
         projects: data.projectsList,
         openSourceProjects: data.openSourceList,

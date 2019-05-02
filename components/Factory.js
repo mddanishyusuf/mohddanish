@@ -34,22 +34,14 @@ export function Navbar({ labels, isMobileNavOpen, closenavbar, router }) {
             {isMobileNavOpen && <div className="mobile-navbar-bg" role="presentation" onClick={closenavbar} />}
 
             <ul className={`${isMobileNavOpen && 'open-navbar'}`}>
-                {router.asPath !== '/' &&
-                    labels.map(label => (
-                        <li key={label.id}>
-                            <Link href={`/tag/${label.name}`}>
-                                <a>{label.name}</a>
-                            </Link>
-                        </li>
-                    ))}
                 <li>
                     <Link href="/blog">
-                        <a>blog</a>
+                        <a>Blog</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/blog">
-                        <a>Hire Me</a>
+                        <a>Let's Connect</a>
                     </Link>
                 </li>
             </ul>
@@ -62,10 +54,8 @@ export function Navbar({ labels, isMobileNavOpen, closenavbar, router }) {
                     }
                     ul li {
                         display: inline-block;
-                        font-family: 'Shadows Into Light', cursive;
                         padding: 3px 40px 3px 0px;
-                        font-size: 1rem;
-                        font-weight: 700;
+                        font-size: 0.8rem;
                         letter-spacing: 1px;
                     }
                     ul li a {

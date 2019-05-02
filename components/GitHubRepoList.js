@@ -54,7 +54,7 @@ function GitHubCard({ obj }) {
                             </li>
                             <li>
                                 <Eye size={15} />
-                                <span>{card.watchers_count}</span>
+                                <span>{card.subscribers_count}</span>
                             </li>
                             <li>
                                 <AlertTriangle size={15} />
@@ -129,7 +129,7 @@ function GitHubRepoList({ openSourceProject }) {
     return (
         <div className="osp-container">
             <div className="section-heading">
-                <h2>{openSourceProject.title}</h2>
+                <h2>‎‍👨🏻‍💻 {openSourceProject.title}</h2>
                 <small dangerouslySetInnerHTML={{ __html: openSourceProject.subHeading }} />
             </div>
             <section className="github-project-list">
@@ -146,6 +146,12 @@ function GitHubRepoList({ openSourceProject }) {
                     }
                     .osp-container {
                         padding: 80px;
+                    }
+
+                    @media (max-width: 700px) {
+                        .osp-container {
+                            padding: 20px !important;
+                        }
                     }
                     .osp-container h2 {
                         margin: 0px;
