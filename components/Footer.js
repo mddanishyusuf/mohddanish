@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { Twitter, GitHub, Facebook, Youtube } from 'react-feather';
 
-const Footer = function(props) {
+const Footer = function({ social }) {
     return (
         <footer>
             <div className="footer">
                 <div className="footer-inner">
                     <p>
-                        Theme by
+                        Theme by{' '}
                         <a href="https://twitter.com/mddanishyusuf" target="_blank" rel="noreferrer noopener">
                             @mddanishyusuf
                         </a>
@@ -29,38 +29,16 @@ const Footer = function(props) {
                 </div>
                 <div className="footer-nav right-navbar">
                     <ul>
-                        <li>
-                            <a
-                                href="https://github.com/mddanishyusuf/dailyhack#-how-to-add-tricks"
-                                target="_blank"
-                                rel="noreferrer noopener"
-                            >
-                                <Facebook color="#3832DC" size={18} /> <span>Facebook</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="https://github.com/mddanishyusuf/dailyhack/blob/master/README.md"
-                                target="_blank"
-                                rel="noreferrer noopener"
-                            >
-                                <Twitter color="#3832DC" size={18} /> <span>Twitter</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="https://github.com/mddanishyusuf/dailyhack"
-                                target="_blank"
-                                rel="noreferrer noopener"
-                            >
-                                <GitHub color="#3832DC" size={18} /> <span>GitHub</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/dailyhacknotes" target="_blank" rel="noreferrer noopener">
-                                <Youtube color="#3832DC" size={18} /> <span>YouTube</span>
-                            </a>
-                        </li>
+                        {social.plateform
+                            ? social.plateform.map(s => (
+                                  <li key={s.name}>
+                                      <a href={s.link} target="_blank" rel="noreferrer noopener">
+                                          <img src={s.favicon} width="20px" height="20px" alt="makers" />{' '}
+                                          {/* <span>Facebook</span> */}
+                                      </a>
+                                  </li>
+                              ))
+                            : ''}
                     </ul>
                 </div>
             </div>
@@ -114,8 +92,7 @@ const Footer = function(props) {
                         display: flex;
                         text-decoration: none;
                         color: #707070;
-                        font-size: 0.9rem;
-                        font-family: 'Shadows Into Light', cursive;
+                        font-size: 0.8rem;
                     }
 
                     .footer-nav {

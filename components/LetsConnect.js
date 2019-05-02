@@ -8,12 +8,14 @@ function LetsConnect({ socialLinks }) {
             <section className="social-project-list">
                 {socialLinks.plateform.map(social => (
                     <div className="item" key={social.name}>
-                        <div className="social-header">
-                            <img src={social.favicon} width="20px" height="20px" alt="makers" />{' '}
-                            <span>{social.name}</span>
-                        </div>
+                        <a href={social.link}>
+                            <div className="social-header">
+                                <img src={social.favicon} width="20px" height="20px" alt="makers" />{' '}
+                                <span>{social.name}</span>
+                            </div>
+                        </a>
                         <small>{social.type}</small>
-                        <p>{social.about_it}</p>
+                        {/* <p>{social.about_it}</p> */}
                     </div>
                 ))}
             </section>
@@ -40,12 +42,16 @@ function LetsConnect({ socialLinks }) {
                     .social-project-list {
                         padding-top: 80px;
                         display: grid;
-                        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
                         grid-gap: 40px;
                     }
                     .social-project-list p {
                         font-size: 0.8rem;
                         line-height: 1.3rem;
+                    }
+                    .social-project-list a {
+                        text-decoration: none;
+                        color: #1f0409;
                     }
                 `}
             </style>

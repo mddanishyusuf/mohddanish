@@ -15,7 +15,9 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "cacheable-response": "^1.5.2",
     "dotenv": "^7.0.0",
+    "encoding": "^0.1.12",
     "express": "^4.16.4",
     "isomorphic-unfetch": "^3.0.0",
     "markdown-to-jsx": "^6.9.3",

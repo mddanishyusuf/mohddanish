@@ -6,8 +6,7 @@ import { metadata } from '../config/data';
 import globalStyles from '../styles/global.js';
 
 const Layout = props => {
-    const { children, labels, aboutMe } = props;
-    console.log('aboutME', aboutMe);
+    const { children, labels, aboutMe, social } = props;
     const { title, description, pageUrl, homeFeaturedImage } = metadata;
     return (
         <div>
@@ -27,16 +26,13 @@ const Layout = props => {
                 <meta property="og:image" content="/static/home-featured-image.png" />
                 <meta property="og:description" content={description} />
 
-                <link
-                    href="https://fonts.googleapis.com/css?family=Poppins|Shadows+Into+Light|Noto+Serif+JP"
-                    rel="stylesheet"
-                />
+                <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
                 <link href="/static/devicon.css" rel="stylesheet" />
                 <link href="/static/devicon-colors.css" rel="stylesheet" />
             </Head>
             <Header labels={labels} {...metadata} aboutMe={aboutMe} />
             <div className="main">{children}</div>
-            <Footer />
+            <Footer social={social} />
             <style jsx global>{`
                 body {
                     margin: 0;
@@ -45,6 +41,8 @@ const Layout = props => {
                     line-height: 1.6;
                     color: #333;
                     font-family: 'Poppins', sans-serif;
+                    max-width: 1600px;
+                    margin: 0px auto;
                 }
                 h1 {
                     font-weight: 700;

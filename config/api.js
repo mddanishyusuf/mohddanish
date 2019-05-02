@@ -50,19 +50,6 @@ export async function getData() {
     );
     const profileObj = await contentsArray.json();
 
-    // const openSourceContentIndex = contentURLObj.findIndex(x => x.name === 'open-source-projects.json');
-
-    // const projectsContentIndex = contentURLObj.findIndex(x => x.name === 'projects.json');
-
-    // const skillContentIndex = contentURLObj.findIndex(x => x.name === 'skills.json');
-
-    // const socialLinks = contentURLObj.findIndex(x => x.name === 'find-me.json');
-
-    // const openSourceContent = await fetch(contentURLObj[openSourceContentIndex].download_url);
-    // const projectsContent = await fetch(contentURLObj[projectsContentIndex].download_url);
-    // const skillContent = await fetch(contentURLObj[skillContentIndex].download_url);
-    // const socialLinksContent = await fetch(contentURLObj[socialLinks].download_url);
-
     const openSourceList = profileObj.openSourceProjects;
     const projectsList = profileObj.sideProjects;
     const skillList = profileObj.skills;

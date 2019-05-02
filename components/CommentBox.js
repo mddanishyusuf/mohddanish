@@ -63,13 +63,12 @@ const Comments = function({ comments }) {
                         grid-template-columns: 40px auto;
                     }
                     .comment-body .comment-head .comment-meta {
-                        font-size: 13px;
+                        font-size: 10px;
                         letter-spacing: 1px;
-                        font-family: 'Noto Serif JP', serif;
                     }
 
                     .comment-text {
-                        font-size: 14px;
+                        font-size: 12px;
                         line-height: 1.6;
                         margin-bottom: 40px;
                         border: 1px solid #d8d8d8;
@@ -78,7 +77,6 @@ const Comments = function({ comments }) {
                         margin-top: 10px;
                         background-color: #f1f8ff;
                         border-bottom-color: #c0d3eb;
-                        font-family: 'Shadows Into Light', cursive;
                         display: inline-block;
                         letter-spacing: 1px;
                         border-radius: 10% 10% 10% 10% / 14% 14% 12% 12%;
@@ -118,7 +116,6 @@ const CommentBox = function({ comments }) {
                     .no-comments {
                         font-size: 14px;
                         margin-bottom: 20px;
-                        font-family: 'Noto Serif JP', serif;
                     }
 
                     @media screen and (max-width: 700px) {

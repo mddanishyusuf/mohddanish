@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { getPosts, getRepoInfo, getLabels } from '../config/api';
+import { getPosts, getRepoInfo, getLabels, getData } from '../config/api';
 import { PostCard } from '../components/Factory';
 
 import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
 
-function IndexPage({ posts, totalPosts, labels, activePage }) {
+function IndexPage({ posts, totalPosts, labels, activePage, social }) {
     return (
-        <Layout labels={labels}>
+        <Layout labels={labels} social={social}>
             {/* {totalPosts} */}
             <div className="card-container">
                 {posts.map(post => (
@@ -39,7 +39,6 @@ IndexPage.getInitialProps = async context => {
     } else {
         pageNumber = reqPageNumber;
     }
-    console.log(pageNumber);
 
     const res = await getPosts(pageNumber);
     const json = await res.json();
@@ -49,7 +48,15 @@ IndexPage.getInitialProps = async context => {
 
     const labels = await getLabels();
     const labelsJson = await labels.json();
-    return { posts: json, totalPosts: repoJson.open_issues_count, labels: labelsJson, activePage: pageNumber };
+
+    const data = await getData();
+    return {
+        posts: json,
+        totalPosts: repoJson.open_issues_count,
+        labels: labelsJson,
+        activePage: pageNumber,
+        social: data.social,
+    };
 };
 
 export default IndexPage;

@@ -11,7 +11,7 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router, about
     };
 
     return (
-        <div>
+        <div className="top-header">
             <header>
                 <div className="logo-title">
                     <Link href="/">
@@ -41,14 +41,22 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router, about
                     body {
                         overflow-y: ${mobileNav && 'hidden'};
                     }
+                    .user-bio a {
+                        color: #1f0409 !important;
+                    }
                 `}
             </style>
             <style jsx>{`
+                .top-header {
+                    background: ${router.asPath === '/' && '#4776e6'};
+                    background: ${router.asPath === '/' && '-webkit-linear-gradient(to right, #8e54e9, #4776e6)'};
+                    background: ${router.asPath === '/' && 'linear-gradient(to right, #8e54e9, #4776e6)'};
+                }
                 .logo-title a {
                     font-size: 1.5rem;
                     font-family: 'Poppins', sans-serif;
                     text-decoration: none;
-                    color: #010101;
+                    color: ${router.asPath === '/' ? '#fff' : '#333'};
                     letter-spacing: 1px;
                     line-height: 1.8rem;
                 }
@@ -56,6 +64,7 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router, about
                     font-family: 'Poppins', sans-serif;
                     opacity: 0.6;
                     font-size: 0.8rem;
+                    color: ${router.asPath === '/' ? '#fff' : '#333'};
                 }
 
                 .profile-container {
@@ -67,15 +76,15 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router, about
                     width: 100px;
                     height: 100px;
                     border-radius: 50%;
-                    border: 3px solid #707070;
+                    border: 3px solid #fff;
                 }
 
                 .user-bio {
                     font-family: 'Poppins', sans-serif;
-                    font-size: 0.9rem;
-                    color: #707070;
+                    font-size: 1.1rem;
+                    color: #1f0409;
                     letter-spacing: 0.5px;
-                    line-height: 1.8rem;
+                    line-height: 2rem;
                     padding: 20px;
                 }
 
@@ -93,7 +102,7 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router, about
                         display: none;
                     }
                     .user-bio {
-                        width: 50%;
+                        width: 60%;
                         margin: 0 auto;
                     }
                 }

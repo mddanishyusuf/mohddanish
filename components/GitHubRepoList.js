@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { User, Star, Eye, AlertTriangle } from 'react-feather';
+import { User, Star, Eye, AlertTriangle, ExternalLink } from 'react-feather';
 
 function GitHubCard({ obj }) {
     // the client and secret id is from here https://lab.lepture.com/github-cards
@@ -20,7 +20,6 @@ function GitHubCard({ obj }) {
                 setCardLoaded(true);
             });
     }, [obj.name]);
-    console.log(card);
     return (
         <div>
             {cardLoaded && (
@@ -131,6 +130,10 @@ function GitHubRepoList({ openSourceProject }) {
             <div className="section-heading">
                 <h2>‎‍👨🏻‍💻 {openSourceProject.title}</h2>
                 <small dangerouslySetInnerHTML={{ __html: openSourceProject.subHeading }} />
+                <br />
+                <div className="github-link">
+                    My GitHub <ExternalLink size={12} />
+                </div>
             </div>
             <section className="github-project-list">
                 {openSourceProject.projects.map(osProject => (
@@ -146,6 +149,24 @@ function GitHubRepoList({ openSourceProject }) {
                     }
                     .osp-container {
                         padding: 80px;
+                    }
+
+                    .github-link {
+                        border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+                        border-style: solid;
+                        border-width: 1px;
+                        padding: 3px 8px;
+                        align-items: flex-start;
+                        text-align: center;
+                        cursor: pointer;
+                        color: buttontext;
+                        background-color: #7cacf7;
+                        box-sizing: border-box;
+                        font-size: 11px;
+                        text-shadow: none;
+                        display: inline-block;
+                        border-radius: 3px;
+                        margin-top: 20px;
                     }
 
                     @media (max-width: 700px) {

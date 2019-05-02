@@ -40,8 +40,8 @@ export function Navbar({ labels, isMobileNavOpen, closenavbar, router }) {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/blog">
-                        <a>Let's Connect</a>
+                    <Link href="mailto:mddanishyusuf@gmail.com">
+                        <a>Hire Me</a>
                     </Link>
                 </li>
             </ul>
@@ -55,11 +55,11 @@ export function Navbar({ labels, isMobileNavOpen, closenavbar, router }) {
                     ul li {
                         display: inline-block;
                         padding: 3px 40px 3px 0px;
-                        font-size: 0.8rem;
+                        font-size: 0.9rem;
                         letter-spacing: 1px;
                     }
                     ul li a {
-                        color: #707070;
+                        color: ${router.asPath === '/' ? '#fff' : '#333'};
                         text-decoration: none;
                     }
                     @media screen and (max-width: 700px) {
@@ -192,6 +192,16 @@ export function PostCardHome({ postDetail }) {
                         .post-card {
                             width: 70%;
                             margin: 0 auto;
+                        }
+
+                        .post-card {
+                            padding: 20px !important;
+                        }
+                    }
+
+                    @media screen and (max-width: 700px) {
+                        .post-card {
+                            padding: 20px !important;
                         }
                     }
 

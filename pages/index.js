@@ -11,7 +11,7 @@ import LetsConnect from '../components/LetsConnect';
 
 function IndexPage({ posts, labels, skills, projects, openSourceProjects, social, aboutMe }) {
     return (
-        <Layout labels={labels} aboutMe={aboutMe}>
+        <Layout labels={labels} aboutMe={aboutMe} social={social}>
             <div className="card-container">
                 <ArticleShowcase posts={posts} />
                 <GitHubRepoList openSourceProject={openSourceProjects} />
