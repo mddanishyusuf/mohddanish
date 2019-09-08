@@ -9,8 +9,10 @@ const HyperLink = ({ children, ...props }) => (
 );
 
 const Comments = function({ comments }) {
+    console.log(comments);
     return (
         <div className="comments-list">
+            Thanks for reading...
             <div className="no-comments">
                 Do you have any comment on this tricks? then let the author know about that.{' '}
                 <a href={comments[0].html_url} target="_blank" rel="noopener noreferrer">
@@ -93,25 +95,27 @@ const Comments = function({ comments }) {
     );
 };
 
-const CommentBox = function({ comments }) {
+const CommentBox = function({ comments, number }) {
     return (
         <div className="comment-box">
+            <hr />
+            Thanks for reading...
             <div className="comments">
-                <hr />
                 {comments.length > 0 ? (
                     <Comments comments={comments} />
                 ) : (
                     <div className="no-comments">
                         Do you have any comment on this tricks? then let the author know about that.{' '}
-                        <a href="https://github.com/mddanishyusuf/dailyhack/issues">comment here</a>
+                        <a href={`https://github.com/mddanishyusuf/blog-with-github-issues/issues/${number}`}>
+                            comment here
+                        </a>
                     </div>
                 )}
             </div>
             <style jsx>
                 {`
                     .comment-box {
-                        width: 60%;
-                        margin: 0px auto;
+                        padding: 20px;
                     }
                     .no-comments {
                         font-size: 14px;

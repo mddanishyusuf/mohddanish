@@ -24,9 +24,6 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router, about
                 <div className="labels">
                     <Navbar labels={labels} router={router} isMobileNavOpen={mobileNav} closenavbar={toggleNavbar} />
                 </div>
-                <div className="menu-bar" role="presentation" onClick={toggleNavbar}>
-                    Menu
-                </div>
             </header>
             {router.asPath === '/' && (
                 <div className="profile-container">
@@ -42,29 +39,29 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router, about
                         overflow-y: ${mobileNav && 'hidden'};
                     }
                     .user-bio a {
-                        color: #1f0409 !important;
+                        color: #362d5f !important;
+                        text-decoration: none;
                     }
                 `}
             </style>
             <style jsx>{`
                 .top-header {
                     background: ${router.asPath === '/' && '#4776e6'};
-                    background: ${router.asPath === '/' && '-webkit-linear-gradient(to right, #8e54e9, #4776e6)'};
-                    background: ${router.asPath === '/' && 'linear-gradient(to right, #8e54e9, #4776e6)'};
+                    background: ${router.asPath === '/' && '-webkit-linear-gradient(to right, #fd746c, #ff9068)'};
+                    background: ${router.asPath === '/' && 'linear-gradient(to right, #fd746c, #ff9068)'};
                 }
                 .logo-title a {
                     font-size: 1.5rem;
-                    font-family: 'Poppins', sans-serif;
                     text-decoration: none;
-                    color: ${router.asPath === '/' ? '#fff' : '#333'};
+                    color: ${router.asPath === '/' ? '#373737' : '#333'};
                     letter-spacing: 1px;
                     line-height: 1.8rem;
+                    font-weight: 600;
                 }
                 .sub-title {
-                    font-family: 'Poppins', sans-serif;
-                    opacity: 0.6;
-                    font-size: 0.8rem;
-                    color: ${router.asPath === '/' ? '#fff' : '#333'};
+                    opacity: 0.8;
+                    font-size: 0.9rem;
+                    color: ${router.asPath === '/' ? '#373737' : '#333'};
                 }
 
                 .profile-container {
@@ -80,12 +77,12 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router, about
                 }
 
                 .user-bio {
-                    font-family: 'Poppins', sans-serif;
-                    font-size: 1.1rem;
-                    color: #1f0409;
+                    color: #373737;
                     letter-spacing: 0.5px;
-                    line-height: 2rem;
                     padding: 20px;
+                    font-weight: 500;
+                    font-size: 17px;
+                    line-height: 30px;
                 }
 
                 @media screen and (min-width: 700px) {
@@ -102,7 +99,7 @@ const Header = function({ labels, logoName, logoSubtitle, summary, router, about
                         display: none;
                     }
                     .user-bio {
-                        width: 60%;
+                        max-width: 750px;
                         margin: 0 auto;
                     }
                 }

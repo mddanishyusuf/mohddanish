@@ -33,16 +33,22 @@ function PersonalProjects({ projects }) {
                         margin: 0px;
                         padding: 0px;
                     }
-                    .side-project-list {
-                        display: grid;
-                        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-                    }
+
                     .side-project {
-                        display: grid;
-                        grid-template-columns: 40% 1fr;
-                        align-items: center;
-                        grid-gap: 20px;
-                        margin-bottom: 40px;
+                        margin: 20px 0px;
+                    }
+                    @media (min-width: 700px) {
+                        .side-project-list {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                        }
+                        .side-project {
+                            display: grid;
+                            grid-template-columns: 40% 1fr;
+                            align-items: center;
+                            grid-gap: 20px;
+                            margin-bottom: 40px;
+                        }
                     }
                     .side-project h2 {
                         font-size: 1.1rem;

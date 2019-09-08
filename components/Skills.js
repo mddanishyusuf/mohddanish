@@ -21,6 +21,9 @@ function Skills({ skillsObj }) {
                     .skills-container h2 {
                         margin: 0;
                     }
+                    .skills-container small {
+                        max-width: 500px;
+                    }
                     .skills-project-list {
                         padding-top: 80px;
                         display: grid;
@@ -37,7 +40,6 @@ function Skills({ skillsObj }) {
                         }
                         .skills-project-list {
                             display: grid;
-                            grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
                             grid-gap: 40px;
                         }
                     }

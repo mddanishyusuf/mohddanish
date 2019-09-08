@@ -34,14 +34,14 @@ export function Navbar({ labels, isMobileNavOpen, closenavbar, router }) {
             {isMobileNavOpen && <div className="mobile-navbar-bg" role="presentation" onClick={closenavbar} />}
 
             <ul className={`${isMobileNavOpen && 'open-navbar'}`}>
-                <li>
+                {/* <li>
                     <Link href="/blog">
                         <a>Blog</a>
                     </Link>
-                </li>
+                </li> */}
                 <li>
                     <Link href="mailto:mddanishyusuf@gmail.com">
-                        <a>Hire Me</a>
+                        <a>Need Help❓</a>
                     </Link>
                 </li>
             </ul>
@@ -59,8 +59,12 @@ export function Navbar({ labels, isMobileNavOpen, closenavbar, router }) {
                         letter-spacing: 1px;
                     }
                     ul li a {
-                        color: ${router.asPath === '/' ? '#fff' : '#333'};
+                        color: ${router.asPath === '/' ? '#373737' : '#333'};
                         text-decoration: none;
+                        font-weight: 500;
+                        border: 2px solid #373737;
+                        padding: 4px 8px;
+                        border-radius: 4px;
                     }
                     @media screen and (max-width: 700px) {
                         .mobile-navbar-bg {
@@ -136,13 +140,15 @@ export function PostCard({ postDetail }) {
                         padding: 0px 15px;
                         letter-spacing: 1.5px;
                         border-radius: 3px;
-                        font-family: 'Shadows Into Light', cursive;
+                        font-family: 'Space Mono', monospace;
                     }
 
                     .post-title {
                         font-size: 1.4rem;
                         line-height: 2rem;
                         padding-top: 10px;
+                        font-weight: 700;
+                        color: #373737;
                     }
 
                     .post-date {
@@ -153,13 +159,13 @@ export function PostCard({ postDetail }) {
                     }
 
                     .post-summary {
-                        line-height: 1.4rem;
+                        line-height: 1.6rem;
                         letter-spacing: 1px;
-                        font-size: 0.8rem;
+                        font-size: 1rem;
                         margin-top: 5px;
                     }
                     .post-summary span {
-                        font-family: 'Shadows Into Light', cursive;
+                        font-family: 'Space Mono', monospace;
                         color: #3832dc;
                     }
                 `}
@@ -180,7 +186,7 @@ export function PostCardHome({ postDetail }) {
                 {showReadingTime && getReadingTime(postDetail.body)}
             </div>
             <div className="post-summary">
-                {postDetail.body.substr(0, 60)}{' '}
+                {postDetail.body.substr(0, 100)}{' '}
                 <span>
                     <PostSlug title={postDetail.title} number={postDetail.number} label="read more" />
                 </span>
@@ -209,19 +215,22 @@ export function PostCardHome({ postDetail }) {
                         padding: 0px;
                     }
                     .post-label {
-                        font-family: 'Shadows Into Light', cursive;
-                        font-size: 0.7rem;
+                        font-size: 0.8rem;
                         border: 1px solid #707070;
                         display: inline-block;
                         padding: 0px 15px;
                         letter-spacing: 1.5px;
                         border-radius: 3px;
+                        font-weight: 700;
+                        opacity: 0.8;
                     }
 
                     .post-title {
                         font-size: 1.4rem;
                         line-height: 2rem;
                         padding-top: 10px;
+                        font-weight: 700;
+                        color: #373737;
                     }
 
                     .post-date {
@@ -234,11 +243,10 @@ export function PostCardHome({ postDetail }) {
                     .post-summary {
                         line-height: 1.4rem;
                         letter-spacing: 1px;
-                        font-size: 0.8rem;
+                        font-size: 0.9rem;
                         margin-top: 5px;
                     }
                     .post-summary span {
-                        font-family: 'Shadows Into Light', cursive;
                         color: #3832dc;
                     }
                 `}

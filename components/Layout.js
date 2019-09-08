@@ -25,8 +25,8 @@ const Layout = props => {
                 <meta property="og:url" content={pageUrl} />
                 <meta property="og:image" content="/static/home-featured-image.png" />
                 <meta property="og:description" content={description} />
-
-                <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700&display=swap" rel="stylesheet" />
+                {/* <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet" /> */}
                 <link href="/static/devicon.css" rel="stylesheet" />
                 <link href="/static/devicon-colors.css" rel="stylesheet" />
             </Head>
@@ -40,7 +40,7 @@ const Layout = props => {
                     font-weight: 400;
                     line-height: 1.6;
                     color: #333;
-                    font-family: 'Poppins', sans-serif;
+                    font-family: 'Space Mono', monospace;
                     max-width: 1600px;
                     margin: 0px auto;
                 }
@@ -49,25 +49,37 @@ const Layout = props => {
                 }
                 p,
                 ol li {
-                    font-size: 1rem;
-                    font-weight: 400;
                     font-style: normal;
                     letter-spacing: -0.003em;
-                    line-height: 1.9rem;
-                    font-family: 'Poppins', sans-serif;
+                    font-size: 16px;
+                    color: #5d5c5c;
+                    word-spacing: 1px;
                 }
                 h3 {
                     font-size: 26px;
                     line-height: 1.22;
                     letter-spacing: -0.012em;
                 }
-                pre {
-                    background-color: #f6f8fa;
+                pre,
+                .body-markdown p code,
+                .body-markdown pre {
                     border-radius: 3px;
                     font-size: 85%;
-                    line-height: 1.45;
-                    overflow: auto;
-                    padding: 16px;
+                    margin: 0;
+                    display: block;
+                    background: rgba(0, 0, 0, 0.05);
+                    padding: 20px;
+                    margin: 30px 0px;
+
+                    font-style: normal;
+                    -webkit-letter-spacing: -0.003em;
+                    -moz-letter-spacing: -0.003em;
+                    -ms-letter-spacing: -0.003em;
+                    letter-spacing: -0.003em;
+                    font-size: 16px;
+                    color: #5d5c5c;
+                    word-spacing: 1px;
+                    overflow-x: scroll;
                 }
                 .body-markdown img {
                     max-width: 100%;
@@ -81,19 +93,12 @@ const Layout = props => {
                     padding: 4px 0px;
                 }
 
-                .body-markdown p code,
                 .body-markdown ol li code {
                     border-radius: 3px;
-                    font-size: 85%;
                     margin: 0;
-                    display: block;
-                    background: rgba(0, 0, 0, 0.05);
-                    padding: 20px;
-                }
-
-                @font-face {
-                    font-family: MongolianFont;
-                    src: url('./static/fonts/monbaiti.ttf');
+                    display: inline-block;
+                    background: rgba(0, 0, 0, 0.2);
+                    padding: 0px 10px;
                 }
             `}</style>
         </div>

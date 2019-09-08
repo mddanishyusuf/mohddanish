@@ -35,6 +35,7 @@ function LetsConnect({ socialLinks }) {
                     }
                     .social-header {
                         display: flex;
+                        align-items: center;
                     }
                     .social-header span {
                         padding-left: 10px;

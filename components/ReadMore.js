@@ -20,8 +20,9 @@ const HyperLink = ({ children, ...props }) => (
 );
 
 const ReadMore = function({ post, comments }) {
+    console.log(post);
     return (
-        <div>
+        <div className="single-post">
             <div className="post-header">
                 <div className="post-header-inner">
                     <div className="title">{post.title}</div>
@@ -46,33 +47,25 @@ const ReadMore = function({ post, comments }) {
                     {post.body}
                 </Markdown>
             </div>
-            <CommentBox comments={comments} />
-            <hr />
+            <CommentBox comments={comments} number={post.number} />
             <style jsx>{`
+                .single-post {
+                    margin: 0px auto;
+                    max-width: 800px;
+                }
                 .post-header {
-                    padding: 60px;
+                    padding: 40px;
                     text-align: center;
-                    background: #d3cce3; /* fallback for old browsers */
-                    background: -webkit-linear-gradient(to right, #e9e4f0, #d3cce3); /* Chrome 10-25, Safari 5.1-6 */
-                    background: linear-gradient(
-                        to right,
-                        #e9e4f0,
-                        #d3cce3
-                    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
                 }
 
-                @media screen and (min-width: 700px) {
-                    .post-header-inner {
-                        width: 70%;
-                        margin: 0px auto;
-                    }
-                    .post-body {
-                        width: 60%;
-                        margin: 0px auto;
-                    }
-                }
                 .post-body {
                     padding: 20px;
+                }
+
+                .body-markdown {
+                    font-size: 16px;
+                    color: #5d5c5c;
+                    word-spacing: 1px;
                 }
 
                 @media screen and (max-width: 700px) {
@@ -88,7 +81,7 @@ const ReadMore = function({ post, comments }) {
                     letter-spacing: 1px;
                     width: 80%;
                     margin: 0px auto;
-                    color: #707070;
+                    color: #e36444;
                 }
                 .post-header .post-published {
                     font-size: 0.8rem;

@@ -26,6 +26,12 @@ const Footer = function({ social }) {
                             GitHub Issues CMS
                         </a>
                     </p>
+                    <p>
+                        CMS{' '}
+                        <a href="https://apiwithgithub.com/" target="_blank" rel="noreferrer noopener">
+                            API with GitHub
+                        </a>
+                    </p>
                 </div>
                 <div className="footer-nav right-navbar">
                     <ul>

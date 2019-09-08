@@ -110,6 +110,7 @@ function GitHubCard({ obj }) {
                                 float: left;
                                 padding-right: 10px;
                                 font-size: 0.8rem;
+                                align-items: center;
                             }
                             .card-body p {
                                 font-size: 0.8rem;
@@ -131,9 +132,9 @@ function GitHubRepoList({ openSourceProject }) {
                 <h2>‎‍👨🏻‍💻 {openSourceProject.title}</h2>
                 <small dangerouslySetInnerHTML={{ __html: openSourceProject.subHeading }} />
                 <br />
-                <div className="github-link">
+                <a href="https://github.com/mddanishyusuf" className="github-link">
                     My GitHub <ExternalLink size={12} />
-                </div>
+                </a>
             </div>
             <section className="github-project-list">
                 {openSourceProject.projects.map(osProject => (
@@ -146,6 +147,10 @@ function GitHubRepoList({ openSourceProject }) {
                 {`
                     .section-heading {
                         padding: 60px 0px;
+                    }
+                    .section-heading small {
+                        max-width: 500px;
+                        display: block;
                     }
                     .osp-container {
                         padding: 80px;
@@ -166,7 +171,6 @@ function GitHubRepoList({ openSourceProject }) {
                         text-shadow: none;
                         display: inline-block;
                         border-radius: 3px;
-                        margin-top: 20px;
                     }
 
                     @media (max-width: 700px) {
