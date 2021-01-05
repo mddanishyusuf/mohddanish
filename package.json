@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "cacheable-response": "^1.5.2",
     "dotenv": "^7.0.0",
     "encoding": "^0.1.12",
