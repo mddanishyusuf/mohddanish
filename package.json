@@ -18,7 +18,7 @@
     "cacheable-response": "^1.5.2",
     "dotenv": "^7.0.0",
     "encoding": "^0.1.12",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "isomorphic-unfetch": "^3.0.0",
     "markdown-to-jsx": "^6.9.3",
     "moment": "^2.24.0",
